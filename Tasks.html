@@ -50,7 +50,9 @@
         expense: exp.value,
         source: src.value,
       };
-      localStorage.setItem("total", total);
+      let i=localStorage.setItem("total", total);
+      console.log(i);
+      let j=localStorage.getItem("total")
       function display() {
         console.log(total);
       }
