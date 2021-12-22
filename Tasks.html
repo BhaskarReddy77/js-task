@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Manager</title>
+  </head>
+  <body>
+    <form style="display: none" id="money">
+      <input type="number" id="form" />
+      <input type="text" id="form1" />
+      <button id="add">Add</button>
+    </form>
+    <form id="money2" style="display: none">
+      <input type="number" id="form2" />
+      <button id="add2">Add</button>
+    </form>
+
+    <button id="income" onclick="income()">Income</button>
+    <button id="expense" onclick="expense()">Expense</button>
+    <button id="display" onclick="display()">Display</button>
+
+    <script>
+      let btn1 = document.getElementById("add");
+      let btn2 = document.getElementById("add2");
+
+      function income() {
+        document.getElementById("money").style.display = "flex";
+      }
+      function expense() {
+        document.getElementById("money2").style.display = "flex";
+      }
+
+      btn1.addEventListener("click", () =>
+        alert(`you added ${document.getElementById("form").value}`)
+      );
+      btn1.addEventListener("click", () =>
+        alert(`from your ${document.getElementById("form1").value}`)
+      );
+      btn2.addEventListener("click", () =>
+        alert(`your expenses ${document.getElementById("form2").value}`)
+      );
+
+      let inc = document.getElementById("form");
+      let exp = document.getElementById("form2");
+      let src = document.getElementById("form1");
+      const total = {
+        income: inc.value,
+        expense: exp.value,
+        source: src.value,
+      };
+      localStorage.setItem("total", total);
+      function display() {
+        console.log(total);
+      }
+    </script>
+  </body>
+</html>
